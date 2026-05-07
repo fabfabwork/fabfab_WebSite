@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FabFab' portfolio featuring projects, skills, and professional experience.">
+    <meta name="author" content="Fabio Gomes">
+    <meta name="robots" content="index, follow">
+    <title>FabFab.work | Portfolio</title>
+    <link rel="icon" type="image/png" href="img/Logo/FabFab_Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css" title="Theme">
+    <meta property="og:title" content="FabFab.work">
+    <meta property="og:description" content="Creative design and photography studio.">
+    <meta property="og:image" content="img/preview.jpg">  
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html">
+      <img class="logo" src="img/Logo/FabFab_Logo.svg"/>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="Portfolio.html" class="active">Portfolio</a>
+      <a href="Contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <img src="img/Logo/FabFab_Logo.svg" alt="Loading..." class="loader-logo">
+  </div>
+
+  <!-- FILTER BUTTONS (fixed, outside scroll container) -->
+  <div class="filter-buttons">
+    <button data-filter="all">All</button>
+    <button data-filter="design">Design</button>
+    <button data-filter="photo">Photo</button>
+    <button data-filter="web">Web</button>
+  </div>
+
+  <!-- MAIN SCROLL AREA -->
+  <main>
+    <div class="portfolio-container">
+
+      <div class="no-results" id="noResults">
+        No projects found in this category.
+      </div>
+
+      <div class="galleryblock">
+
+        <div class="big-stretch" data-category="design">
+          <img src="img/Portfolio/Design/A Analysis of São Paulo City-COVER.gif" alt="Booklet | A Analysis of São Paulo City" data-link="https://www.behance.net/gallery/235087111/Booklet-A-Analysis-of-Sao-Paulo-City">
+        </div>
+
+        <div class="v-stretch" data-category="design">
+          <img src="img/Portfolio/Design/A Analysis of São Paulo City.jpg" alt="A Analysis of São Paulo City" data-link="https://www.behance.net/gallery/235087111/Booklet-A-Analysis-of-Sao-Paulo-City">
+        </div>
+
+        <div class="h-stretch" data-category="design">
+          <img src="img/Portfolio/Design/Hagios-Cover.gif" alt="Magazine | Hagios: Editorial Design for a Religious Publication" data-link="https://www.behance.net/gallery/240776881/Hagios-Editorial-Design-for-a-Religious-Publication?platform=direct">
+        </div>
+
+        <div data-category="web">
+          <img src="img/Portfolio/Design/petprev.webp" alt="PETPREV" data-link="https://www.behance.net/gallery/219304545/UXUI-PETPREV">
+        </div>
+
+        <div class="big-stretch" data-category="design">
+          <img src="img/Portfolio/Design/Hagios-PJ1.png" alt="Magazine | Hagios: Editorial Design for a Religious Publication" data-link="https://www.behance.net/gallery/240776881/Hagios-Editorial-Design-for-a-Religious-Publication?platform=direct">
+        </div>
+
+        <div class="big-stretch" data-category="design">
+          <img src="img/Portfolio/Design/JAPAN Travel_COVER.gif" alt="Trifold Brochure | JAPAN Travel Brochure: A Tourist's Guide" data-link="https://www.behance.net/gallery/233681737/JAPAN-Travel-Brochure-A-Tourists-Guide">
+        </div>
+
+        <div data-category="web">
+          <img src="img/Portfolio/Design/tigami.gif" alt="Tigami" data-link="https://www.behance.net/gallery/175200483/UXUI-Tigami">
+        </div>
+
+        <div class="h-stretch" data-category="design">
+          <img src="img/Portfolio/Design/JAPAN Travel.webp" alt="Trifold Brochure | JAPAN Travel Brochure: A Tourist's Guide" data-link="https://www.behance.net/gallery/233681737/JAPAN-Travel-Brochure-A-Tourists-Guide">
+        </div>
+
+        <div data-category="design">
+          <img src="img/Portfolio/Design/Bananada Real_COVER.gif" alt="Packaging and Label | Doces de Minas, new line of sweets: Bananada Real" data-link="https://www.behance.net/gallery/237225397/Doces-de-Minas-new-line-of-sweets-Bananada-Real">
+        </div>
+
+        <div data-category="design">
+          <img src="img/Portfolio/Design/Bananada Real_1.webp" alt="Packaging and Label | Doces de Minas, new line of sweets: Bananada Real" data-link="https://www.behance.net/gallery/237225397/Doces-de-Minas-new-line-of-sweets-Bananada-Real">
+        </div>
+
+        <div data-category="design">
+          <img src="img/Portfolio/Design/Bananada Real_2.webp" alt="Packaging and Label | Doces de Minas, new line of sweets: Bananada Real" data-link="https://www.behance.net/gallery/237225397/Doces-de-Minas-new-line-of-sweets-Bananada-Real">
+        </div>
+
+        <div class="v-stretch" data-category="design">
+          <img src="img/Portfolio/Design/Absolut-New Liqueur_COVER.webp" alt="Absolut | New Liqueur: Christmas Edition" data-link="https://www.behance.net/gallery/234991889/Absolut-New-Liqueur-Christmas-Edition">
+        </div>
+
+        <div data-category="design">
+          <img src="img/Portfolio/Design/Miss-Bella_Mockup.webp" alt="MissBella Body Lotion Packaging Design Briefing: Creating a Luxurious Experience" data-link="https://www.behance.net/gallery/233033929/MissBella-Body-Lotion-Packaging-A-Luxurious-Experience">
+        </div>
+
+        <div class="big-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Loreta_Cover.webp" alt="Loreta" data-link="https://www.behance.net/gallery/223320135/Loreta-in-park">
+        </div>
+
+        <div data-category="photo">
+          <img src="img/Portfolio/Photo/Loreta_1.webp" alt="Loreta" data-link="https://www.behance.net/gallery/223320135/Loreta-in-park">
+        </div>
+
+        <div class="v-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Loreta_3.webp" alt="Loreta" data-link="https://www.behance.net/gallery/223320135/Loreta-in-park">
+        </div>
+
+        <div class="v-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Loreta_4.webp" alt="Loreta" data-link="https://www.behance.net/gallery/223320135/Loreta-in-park">
+        </div>
+
+        <div class="big-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Loreta_5.webp" alt="Loreta" data-link="https://www.behance.net/gallery/223320135/Loreta-in-park">
+        </div>
+
+        <div class="big-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Loreta_6.webp" alt="Loreta" data-link="https://www.behance.net/gallery/223320135/Loreta-in-park">
+        </div>
+
+        <div class="v-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/LDR-1.webp" alt="LDR" data-link="https://www.behance.net/gallery/90461685/Designs">
+        </div>
+
+        <div class="big-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/LDR-2.webp" alt="LDR" data-link="https://www.behance.net/gallery/90461685/Designs">
+        </div>
+
+        <div class="big-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/LDR-3.webp" alt="LDR" data-link="https://www.behance.net/gallery/90461685/Designs">
+        </div>
+
+        <div class="h-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Samuel_2.jpg" alt="Samuel" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div class="v-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Samuel_1.jpg" alt="Samuel" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div class="v-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Samuel_3.jpg" alt="Samuel" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div class="v-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Samuel_4.jpg" alt="Samuel" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div class="v-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Samuel_5.jpg" alt="Samuel" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div data-category="photo">
+          <img src="img/Portfolio/Photo/Thays_1.jpg" alt="Thays" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div data-category="photo">
+          <img src="img/Portfolio/Photo/Camila_2.jpg" alt="Camila" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div data-category="photo">
+          <img src="img/Portfolio/Photo/Camila_1.jpg" alt="Camila" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div class="big-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Thays_2.jpg" alt="Thays" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div class="v-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Thays_3.jpg" alt="Thays" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div class="v-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Thays_6.jpg" alt="Thays" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div class="h-stretch" data-category="photo">
+          <img src="img/Portfolio/Photo/Thays_5.jpg" alt="Thays" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+        <div data-category="photo">
+          <img src="img/Portfolio/Photo/Thays_4.jpg" alt="Thays" data-link="https://www.behance.net/gallery/78578289/Samuel-Thays-IngridCamila-Veronica">
+        </div>
+
+      </div><!-- end galleryblock -->
+    </div><!-- end portfolio-container -->
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <span class="lightbox-arrow left" id="lightboxPrev">&#8592;</span>
+    <div class="lightbox-content">
+      <div class="lightbox-spinner" id="lightboxSpinner"></div>
+      <img id="lightboxImg" src="" alt="">
+      <a id="lightboxCaption" target="_blank" rel="noopener noreferrer"></a>
+    </div>
+    <span class="lightbox-arrow right" id="lightboxNext">&#8594;</span>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop">&#8679;</button>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="signature">
+      Designed w/ Love &hearts; by
+      <a href="https://www.behance.net/fabio_oms" target="_blank" class="footer-link">Fabio Gomes</a> .
+      © 2026 FabFab. All rights reserved.
+    </span>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+</html>
