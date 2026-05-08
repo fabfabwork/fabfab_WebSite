@@ -902,3 +902,98 @@ footer {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* ── AGE GATE ──────────────────────────────────────────── */
+
+.age-gate {
+  position: fixed;
+  inset: 0;
+  background: rgba(1, 17, 64, 0.97);
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.age-gate.hidden {
+  display: none;
+}
+
+.age-gate-box {
+  background: var(--background-color);
+  border-radius: 2rem;
+  padding: 50px 40px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.age-gate-logo {
+  width: 70px;
+  height: 70px;
+}
+
+.age-gate-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.age-gate-text {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  line-height: 1.8;
+}
+
+.age-gate-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.age-gate-enter {
+  padding: 14px 24px;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 0.05rem;
+}
+
+.age-gate-enter:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.age-gate-leave {
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--primary-color);
+  border-radius: 4rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.6;
+}
+
+.age-gate-leave:hover {
+  opacity: 1;
+  color: var(--secondary-color);
+}
+
+@media (max-width: 480px) {
+  .age-gate-box    { padding: 36px 24px; }
+  .age-gate-title  { font-size: 2.4rem; }
+  .age-gate-text   { font-size: 1.3rem; }
+  .age-gate-enter  { font-size: 1.3rem; }
+}
