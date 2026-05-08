@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       el.style.border = state ? "2px solid red" : "";
     }
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       let valid = true;
 
@@ -36,8 +36,28 @@ document.addEventListener("DOMContentLoaded", () => {
         swal({ title: "Please fill in all fields!", text: "Please complete all required fields correctly.", icon: "error", button: "I will fill them in!" });
         return;
       }
-      swal({ title: "Thank you for your message!", text: "Thank you " + name.value + ", your message has been sent!", icon: "success", button: "Close!" })
-        .then(() => form.reset());
+
+      const btn = form.querySelector("button[type='submit']");
+      if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        });
+
+        if (response.ok) {
+          swal({ title: "Thank you!", text: "Your message has been sent! I'll get back to you soon.", icon: "success", button: "Close" })
+            .then(() => form.reset());
+        } else {
+          swal({ title: "Oops!", text: "Something went wrong. Please try again.", icon: "error", button: "Try again" });
+        }
+      } catch (err) {
+        swal({ title: "No connection", text: "Check your internet and try again.", icon: "error", button: "Ok" });
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = "Send"; }
+      }
     });
 
     window.resetForm = () => form.reset();
