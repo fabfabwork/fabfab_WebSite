@@ -3,11 +3,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Loader ────────────────────────────────────────────────
   const loader = document.getElementById("loader");
   if (loader) {
-    window.addEventListener("load", () => {
-      loader.classList.add("hidden");
-    });
-    // fallback: hide after 3s even if load never fires
+    window.addEventListener("load", () => loader.classList.add("hidden"));
     setTimeout(() => loader.classList.add("hidden"), 3000);
+  }
+
+  // ── Age Gate ──────────────────────────────────────────────
+  const ageGate  = document.getElementById("ageGate");
+  const ageEnter = document.getElementById("ageEnter");
+  const ageLeave = document.getElementById("ageLeave");
+
+  if (ageGate) {
+    if (sessionStorage.getItem("ageVerified") === "yes") {
+      ageGate.classList.add("hidden");
+    }
+
+    if (ageEnter) {
+      ageEnter.addEventListener("click", () => {
+        sessionStorage.setItem("ageVerified", "yes");
+        ageGate.classList.add("hidden");
+        if (typeof gtag === "function") {
+          gtag("event", "age_verified", { event_category: "Age Gate", event_label: "Entered" });
+        }
+      });
+    }
+
+    if (ageLeave) {
+      ageLeave.addEventListener("click", () => {
+        if (typeof gtag === "function") {
+          gtag("event", "age_refused", { event_category: "Age Gate", event_label: "Left" });
+        }
+        window.location.href = "index.html";
+      });
+    }
   }
 
   // ── Contact Form ──────────────────────────────────────────
@@ -48,6 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
+          if (typeof gtag === "function") {
+            gtag("event", "form_submit", { event_category: "Contact", event_label: "Success" });
+          }
           swal({ title: "Thank you!", text: "Your message has been sent! I'll get back to you soon.", icon: "success", button: "Close" })
             .then(() => form.reset());
         } else {
@@ -100,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
         button.classList.add("active");
 
         let visibleCount = 0;
-
         items.forEach(item => {
           const category = item.getAttribute("data-category");
           if (filter === "all" || !category || filter === category) {
@@ -121,16 +150,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (allButton) allButton.classList.add("active");
   }
 
-  // ── Hover Overlay (inject dynamically) ───────────────────
+  // ── Hover Overlay ─────────────────────────────────────────
   document.querySelectorAll(".galleryblock div").forEach(div => {
-    const img   = div.querySelector("img");
+    const img = div.querySelector("img");
     if (!img) return;
-
-    const title = img.alt || "";
     const overlay = document.createElement("div");
     overlay.className = "overlay";
     overlay.innerHTML = `
-      <span class="overlay-title">${title}</span>
+      <span class="overlay-title">${img.alt || ""}</span>
       <span class="overlay-icon">&#128065;</span>
     `;
     div.appendChild(overlay);
@@ -144,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
     portfolioScroll.addEventListener("scroll", () => {
       backToTop.classList.toggle("visible", portfolioScroll.scrollTop > 300);
     });
-
     backToTop.addEventListener("click", () => {
       portfolioScroll.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -168,30 +194,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const img  = galleryImgs[index];
       const link = img.getAttribute("data-link") || "";
 
-      // show spinner, hide image until loaded
       if (lightboxSpinner) lightboxSpinner.classList.add("visible");
-      lightboxImg.style.opacity = "0";
-
+      lightboxImg.style.opacity   = "0";
       lightboxImg.src             = img.src;
       lightboxCaption.textContent = img.alt || "";
       lightboxCaption.href        = link;
-
       lightboxCaption.style.pointerEvents = link ? "auto"    : "none";
       lightboxCaption.style.cursor        = link ? "pointer" : "default";
-
       lightbox.classList.add("open");
     }
 
-    // hide spinner when image finishes loading
     lightboxImg.addEventListener("load", () => {
       if (lightboxSpinner) lightboxSpinner.classList.remove("visible");
-      lightboxImg.style.opacity = "1";
+      lightboxImg.style.opacity    = "1";
       lightboxImg.style.transition = "opacity 0.3s ease";
     });
 
-    function closeLightbox() {
-      lightbox.classList.remove("open");
-    }
+    function closeLightbox() { lightbox.classList.remove("open"); }
 
     function navigate(direction) {
       const visible      = galleryImgs.filter(img => !img.closest("div").classList.contains("hide"));
@@ -221,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "ArrowRight") navigate(1);
     });
 
-    // ── Swipe gestures ──────────────────────────────────────
+    // Swipe gestures
     let touchStartX = 0;
     let touchStartY = 0;
 
@@ -233,8 +252,6 @@ document.addEventListener("DOMContentLoaded", () => {
     lightbox.addEventListener("touchend", (e) => {
       const dx = e.changedTouches[0].clientX - touchStartX;
       const dy = e.changedTouches[0].clientY - touchStartY;
-
-      // only trigger if horizontal swipe is dominant
       if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
         dx < 0 ? navigate(1) : navigate(-1);
       }
@@ -242,44 +259,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
-
-// ── Age Gate ──────────────────────────────────────────────
-  const ageGate  = document.getElementById("ageGate");
-  const ageEnter = document.getElementById("ageEnter");
-  const ageLeave = document.getElementById("ageLeave");
-
-  if (ageGate) {
-    // show gate unless already confirmed this session
-    if (sessionStorage.getItem("ageVerified") === "yes") {
-      ageGate.classList.add("hidden");
-    }
-
-    if (ageEnter) {
-      ageEnter.addEventListener("click", () => {
-        sessionStorage.setItem("ageVerified", "yes");
-        ageGate.classList.add("hidden");
-      });
-    }
-
-    if (ageLeave) {
-      ageLeave.addEventListener("click", () => {
-        window.location.href = "index.html";
-      });
-    }
-  }
-
-// ── Analytics ──────────────────────────────────────────────
-  ageEnter.addEventListener("click", () => {
-  sessionStorage.setItem("ageVerified", "yes");
-  ageGate.classList.add("hidden");
-  gtag("event", "age_verified", { event_category: "Age Gate", event_label: "Entered" });
-});
-
-ageLeave.addEventListener("click", () => {
-  gtag("event", "age_refused", { event_category: "Age Gate", event_label: "Left" });
-  window.location.href = "index.html";
-});
-
-if (response.ok) {
-  gtag("event", "form_submit", { event_category: "Contact", event_label: "Success" });
-  swal({ title: "Thank you!", ...
