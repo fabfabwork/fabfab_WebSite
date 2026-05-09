@@ -267,3 +267,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
+
+// ── Analytics ──────────────────────────────────────────────
+  ageEnter.addEventListener("click", () => {
+  sessionStorage.setItem("ageVerified", "yes");
+  ageGate.classList.add("hidden");
+  gtag("event", "age_verified", { event_category: "Age Gate", event_label: "Entered" });
+});
+
+ageLeave.addEventListener("click", () => {
+  gtag("event", "age_refused", { event_category: "Age Gate", event_label: "Left" });
+  window.location.href = "index.html";
+});
+
+if (response.ok) {
+  gtag("event", "form_submit", { event_category: "Contact", event_label: "Success" });
+  swal({ title: "Thank you!", ...
