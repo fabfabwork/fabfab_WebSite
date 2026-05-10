@@ -383,6 +383,7 @@ footer {
   min-height: 100vh;
   padding: 0 50px;
   background-color: var(--background-color);
+  padding-top: 100px; /* clears fixed header */
 }
 
 .arch_contact_us_duplicate .responsive-container-block.container {
@@ -526,6 +527,9 @@ footer {
   .wk-tab-10 { width: 83.333333%; }
   .wk-tab-11 { width: 91.666667%; }
   .wk-tab-12 { width: 100%; }
+  .arch_contact_us_duplicate .responsive-container-block.big-container {
+    padding-top: 80px;
+  }
 }
 
 @media (max-width: 500px) {
