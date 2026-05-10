@@ -290,13 +290,8 @@ span {
 }
 
 @keyframes typing {
-  0%, 10%, 15%, 25%, 30%, 45%, 50%, 65%, 70%, 85%, 90%, 100% {
-    width: 0;
-  }
-
-  5%, 20%, 35%, 40%, 60%, 75%, 80%, 95% {
-    width: calc(100% + 8px);
-  }
+  0%, 10%, 15%, 25%, 30%, 45%, 50%, 65%, 70%, 85%, 90%, 100% { width: 0; }
+  5%, 20%, 35%, 40%, 60%, 75%, 80%, 95% { width: calc(100% + 8px); }
 }
 
 @media (max-width: 1000px) {
@@ -347,8 +342,8 @@ footer {
 }
 
 @media (max-width: 600px) {
-  footer       { padding: 0.8rem 1rem; }
-  .signature   { font-size: 1rem; line-height: 1.4; }
+  footer     { padding: 0.8rem 1rem; }
+  .signature { font-size: 1rem; line-height: 1.4; }
 }
 
 /* ── CONTACT ───────────────────────────────────────────── */
@@ -378,17 +373,25 @@ footer {
 }
 
 .arch_contact_us_duplicate .responsive-container-block.big-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 0 50px;
+  align-items: flex-start;
+  padding: 90px 50px 80px;
   background-color: var(--background-color);
-  padding-top: 100px; /* clears fixed header */
+  display: flex;
 }
 
 .arch_contact_us_duplicate .responsive-container-block.container {
   max-width: 1100px;
+  width: 100%;
   justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
 }
 
 .arch_contact_us_duplicate .text-blk.section-head {
@@ -428,7 +431,7 @@ footer {
   height: 50px;
   min-width: 240px;
   color: var(--secondary-color);
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   background-color: var(--primary-color);
   border-radius: 4rem;
   font-size: 1.6rem;
@@ -449,7 +452,7 @@ footer {
 
 .arch_contact_us_duplicate .form-wrapper {
   border-bottom: 4px solid var(--primary-color);
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .arch_contact_us_duplicate .social-media-icon-container {
@@ -464,21 +467,25 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .arch_contact_us_duplicate .responsive-container-block.big-container {
+    padding: 80px 20px 70px;
+    align-items: flex-start;
+  }
   .arch_contact_us_duplicate .responsive-cell-block.wk-tab-12.wk-mobile-12.wk-ipadp-6.wk-desk-5,
-  .arch_contact_us_duplicate .responsive-cell-block.wk-mobile-12.wk-desk-5.wk-tab-10.wk-ipadp-5 { margin-bottom: 80px; }
-  .arch_contact_us_duplicate .responsive-cell-block.wk-mobile-12.wk-ipadp-6.wk-desk-5.wk-tab-10 { margin-bottom: 80px; text-align: center; }
+  .arch_contact_us_duplicate .responsive-cell-block.wk-mobile-12.wk-desk-5.wk-tab-10.wk-ipadp-5 { margin-bottom: 40px; }
+  .arch_contact_us_duplicate .responsive-cell-block.wk-mobile-12.wk-ipadp-6.wk-desk-5.wk-tab-10 { margin-bottom: 40px; text-align: center; }
   .arch_contact_us_duplicate .input { height: 45px; }
-  .arch_contact_us_duplicate .responsive-container-block.container { justify-content: space-evenly; margin: 80px 0; }
+  .arch_contact_us_duplicate .responsive-container-block.container { justify-content: space-evenly; margin: 0; }
 }
 
 @media (max-width: 500px) {
   .arch_contact_us_duplicate .text-blk.section-head { font-size: 40px; line-height: 45px; }
-  .arch_contact_us_duplicate .responsive-container-block.big-container { padding: 0 20px; }
+  .arch_contact_us_duplicate .responsive-container-block.big-container { padding: 80px 16px 70px; }
   .arch_contact_us_duplicate .input { height: 40px; }
-  .arch_contact_us_duplicate .responsive-cell-block.wk-mobile-12.wk-ipadp-6.wk-desk-5.wk-tab-10 { text-align: left; padding: 0 20px; }
-  .arch_contact_us_duplicate .responsive-cell-block.wk-mobile-12.wk-desk-5.wk-tab-10.wk-ipadp-5 { padding: 0 20px; }
-  .arch_contact_us_duplicate .button { width: 100%; margin-bottom: 40px; height: 50px; }
-  .arch_contact_us_duplicate .form-wrapper { margin-bottom: 40px; }
+  .arch_contact_us_duplicate .responsive-cell-block.wk-mobile-12.wk-ipadp-6.wk-desk-5.wk-tab-10 { text-align: left; padding: 0; }
+  .arch_contact_us_duplicate .responsive-cell-block.wk-mobile-12.wk-desk-5.wk-tab-10.wk-ipadp-5 { padding: 0; }
+  .arch_contact_us_duplicate .button { width: 100%; margin-bottom: 20px; height: 50px; }
+  .arch_contact_us_duplicate .form-wrapper { margin-bottom: 20px; }
   .arch_contact_us_duplicate .icon-block { width: 25px; height: 25px; }
 }
 
@@ -527,9 +534,6 @@ footer {
   .wk-tab-10 { width: 83.333333%; }
   .wk-tab-11 { width: 91.666667%; }
   .wk-tab-12 { width: 100%; }
-  .arch_contact_us_duplicate .responsive-container-block.big-container {
-    padding-top: 80px;
-  }
 }
 
 @media (max-width: 500px) {
@@ -627,30 +631,15 @@ footer {
   background: var(--secondary-color);
 }
 
-/* tablet */
 @media (max-width: 768px) {
-  .filter-buttons {
-    top: 75px;
-  }
-  .portfolio-container {
-    top: 130px;
-  }
+  .filter-buttons        { top: 75px; }
+  .portfolio-container   { top: 130px; }
 }
 
-/* mobile */
 @media (max-width: 480px) {
-  .filter-buttons {
-    top: 70px;
-    padding: 6px 0;
-  }
-  .filter-buttons button {
-    padding: 7px 14px;
-    margin: 4px;
-    font-size: 1.2rem;
-  }
-  .portfolio-container {
-    top: 116px;
-  }
+  .filter-buttons        { top: 70px; padding: 6px 0; }
+  .filter-buttons button { padding: 7px 14px; margin: 4px; font-size: 1.2rem; }
+  .portfolio-container   { top: 116px; }
 }
 
 /* ── LIGHTBOX ──────────────────────────────────────────── */
@@ -745,9 +734,7 @@ footer {
 .lightbox-arrow.left  { left: 16px; }
 .lightbox-arrow.right { right: 16px; }
 
-.lightbox-arrow:hover {
-  background: var(--secondary-color);
-}
+.lightbox-arrow:hover { background: var(--secondary-color); }
 
 @media (max-width: 768px) {
   .lightbox-content      { max-width: 88vw; }
@@ -937,10 +924,7 @@ footer {
   gap: 20px;
 }
 
-.age-gate-logo {
-  width: 70px;
-  height: 70px;
-}
+.age-gate-logo   { width: 70px; height: 70px; }
 
 .age-gate-title {
   font-size: 3rem;
@@ -996,8 +980,8 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .age-gate-box    { padding: 36px 24px; }
-  .age-gate-title  { font-size: 2.4rem; }
-  .age-gate-text   { font-size: 1.3rem; }
-  .age-gate-enter  { font-size: 1.3rem; }
+  .age-gate-box   { padding: 36px 24px; }
+  .age-gate-title { font-size: 2.4rem; }
+  .age-gate-text  { font-size: 1.3rem; }
+  .age-gate-enter { font-size: 1.3rem; }
 }
