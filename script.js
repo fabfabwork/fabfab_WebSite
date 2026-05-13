@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ── Contact Form ──────────────────────────────────────────
+ // ── Contact Form ──────────────────────────────────────────
   const form = document.getElementById("contactForm");
   if (form) {
     const name    = document.getElementById("name");
@@ -75,6 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
+          // ── GTM dataLayer push ──────────────────────────
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "form_submit",
+            form_id: "contactForm",
+            page_url: window.location.href
+          });
+          // ── GA4 direct event (fallback) ─────────────────
           if (typeof gtag === "function") {
             gtag("event", "form_submit", { event_category: "Contact", event_label: "Success" });
           }
@@ -92,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.resetForm = () => form.reset();
   }
-
+  
   // ── Hamburger Menu ────────────────────────────────────────
   const hamburger  = document.getElementById("hamburger");
   const mainNav    = document.getElementById("mainNav");
